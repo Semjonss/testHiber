@@ -1,0 +1,33 @@
+CREATE TABLE `students` (
+	`student_id` int(10) NOT NULL AUTO_INCREMENT,
+	`first_name` varchar(255) NOT NULL,
+	`last_name` varchar(255) NOT NULL,
+	PRIMARY KEY (`student_id`)
+);
+
+
+
+
+CREATE TABLE `money` (
+	`grant_id` int(10) NOT NULL AUTO_INCREMENT,
+	`student_id` int(10) NOT NULL UNIQUE,
+	`quantity` int(10) NOT NULL,
+	PRIMARY KEY (`grant_id`), FOREIGN KEY (`student_id`) REFERENCES students (`student_id`)
+);
+
+
+
+
+INSERT INTO students (first_name,last_name) values ("Dre", "Petrov");
+
+INSERT INTO students (first_name,last_name) values ("Mur", "Aigen");
+
+INSERT INTO students (first_name,last_name) values ("Aug", "Tonislav");
+
+
+
+INSERT INTO money (student_id, quantity) values (1, 1000);
+
+INSERT INTO money (student_id, quantity) values (2, 1500);
+
+INSERT INTO money (student_id, quantity) values (3, 1600);
